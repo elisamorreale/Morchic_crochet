@@ -7,8 +7,8 @@
 <meta name="description" content="Morchic Crochet: borse e accessori all'uncinetto fatti a mano. Ordini su Instagram @morchic_crochet.">
 <meta property="og:title" content="Morchic Crochet">
 <meta property="og:description" content="Borse e accessori all'uncinetto fatti a mano.">
-<meta property="og:image" content="foto/logo.webp">
-<link rel="icon" href="foto/logo.webp">
+<meta property="og:image" content="logo.webp">
+<link rel="icon" href="logo.webp">
 <style>html,body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap">
@@ -139,7 +139,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;flex-
 <body>
 <header class="bar"><div class="wrap">
   <nav><a href="#collezione">Collezione</a></nav>
-  <a class="mark" href="#top"><img src="foto/logo.webp" alt="">Morchic</a>
+  <a class="mark" href="#top"><img src="logo.webp" alt="">Morchic</a>
   <a class="btn line ig" id="ig-top" target="_blank" rel="noopener" style="padding:10px 16px">Instagram</a>
 </div></header>
 
@@ -260,11 +260,11 @@ $("#rail").innerHTML=withPhoto.map(({p,i},k)=>`
 // rail arrows + counter
 const rail=$("#rail"), prev=$("#prev"), next=$("#next");
 const step=()=>{const p=rail.querySelector(".plate");return p?p.offsetWidth+18:300};
-prev.addEventListener("click",()=>rail.scrollBy({left:-step()}));
-next.addEventListener("click",()=>rail.scrollBy({left:step()}));
+if(prev) prev.addEventListener("click",()=>rail.scrollBy({left:-step()}));
+if(next) next.addEventListener("click",()=>rail.scrollBy({left:step()}));
 function upd(){
-  prev.disabled=rail.scrollLeft<4;
-  next.disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-4;
+  if(prev) prev.disabled=rail.scrollLeft<4;
+  if(next) next.disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-4;
   const n=withPhoto.length, first=Math.min(n,Math.round(rail.scrollLeft/step())+1);
   $("#count").textContent=`${first} / ${n}`;
 }
