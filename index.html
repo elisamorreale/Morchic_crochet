@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Morchic Atelier</title>
+<meta name="description" content="Morchic Crochet: borse e accessori all'uncinetto fatti a mano. Ordini su Instagram @morchic_crochet.">
+<meta property="og:title" content="Morchic Crochet">
+<meta property="og:description" content="Borse e accessori all'uncinetto fatti a mano.">
+<meta property="og:image" content="foto/logo.webp">
+<link rel="icon" href="foto/logo.webp">
+<style>html,body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: atelier lookbook — centered monogram cover, horizontal plates (scroll-snap), tailor's price card with dotted leaders, made-to-order note, Instagram close */
+:root{
+  --bg:#f3e9e4; --paper:#faf4f0; --ink:#2e1419; --soft:#806469; --rule:#dcc7c2;
+  --wine:#6e1229; --wine-ink:#fbf1ee; --rose:#e7cbc5; --gold:#b48a4f; color-scheme:light;
+  --serif:"Cormorant", "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --sans:"Jost", "Futura", system-ui, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--wine);outline-offset:4px}
+.label{font-family:var(--sans);font-weight:500;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--soft)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;margin:10px 0 0;letter-spacing:-.01em;text-wrap:balance}
+h2 i{color:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 .78rem var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:15px 26px;background:var(--wine);color:var(--wine-ink);text-decoration:none;border:0;cursor:pointer;transition:background .3s,letter-spacing .3s}
+.btn:hover{letter-spacing:.26em}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+
+/* top bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+header.bar .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:12px;border-bottom:1px solid var(--rule)}
+header.bar nav{display:flex;gap:22px}
+header.bar nav a{text-decoration:none;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-style:italic;font-size:1.5rem;font-weight:600}
+.mark img{width:34px;height:34px;border-radius:50%}
+.bar .ig{justify-self:end}
+@media (max-width:640px){header.bar nav{display:none}header.bar .wrap{grid-template-columns:auto 1fr}.bar .ig{justify-self:end}.mark{justify-self:start}}
+
+/* cover */
+.cover{text-align:center;padding-block:64px 40px}
+.cover .seal{width:min(200px,46vw);height:auto;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 6px var(--wine),0 0 0 7px var(--gold),0 30px 60px -28px rgba(80,10,30,.6);display:block;margin:0 auto 34px;animation:turn 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes turn{from{transform:rotate(-14deg) scale(.92);opacity:.001}}
+.cover h1{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(3.6rem,13vw,9.5rem);line-height:.85;margin:0;letter-spacing:-.02em}
+.cover h1 span{display:block;font-style:normal;font-family:var(--sans);font-weight:300;font-size:clamp(.7rem,1.6vw,.85rem);letter-spacing:.6em;text-transform:uppercase;margin-top:18px;color:var(--soft);padding-left:.6em}
+.cover p{max-width:46ch;margin:26px auto 30px;color:var(--soft);font-size:1.05rem}
+.cover .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* lookbook */
+.look{padding-block:56px 30px}
+.look .head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.look .hint{font-size:.85rem;color:var(--soft)}
+.rail-box{position:relative;margin:13px max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-inset-left,0px));overflow:hidden}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:0;scroll-behavior:smooth;padding:24px 0 22px 0;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.rail::after{content:"";flex:0 0 1px;margin-left:-19px}
+.plate:last-child{scroll-snap-align:end}
+.rail-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:color-mix(in srgb,var(--paper) 92%,transparent);color:var(--wine);font:400 1.6rem/1 var(--serif);cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(80,10,30,.5);transition:opacity .25s}
+.rail-nav.prev{left:10px}.rail-nav.next{right:10px}
+.rail-nav[disabled]{opacity:0;pointer-events:none}
+@media (hover:none){.rail-nav{display:none}}
+.rail-count{display:block;text-align:center;font-size:.75rem;letter-spacing:.2em;color:var(--soft);padding:0 0 14px}
+.plate{flex:0 0 clamp(230px,28vw,320px);scroll-snap-align:start;background:var(--paper);border:1px solid var(--rule);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.plate:hover{transform:translateY(-8px)}
+.plate .img{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--rose)}
+.plate .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.plate .img img.cut{object-fit:contain;padding:12% 10%;filter:drop-shadow(0 22px 18px rgba(70,10,25,.3))}
+.plate:hover .img img{transform:scale(1.06)}
+.plate .cap{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 16px 16px}
+.plate .no{font-size:.68rem;letter-spacing:.22em;color:var(--soft);display:block}
+.plate .nm{font-family:var(--serif);font-size:1.4rem;font-weight:500;line-height:1.1}
+.plate .pr{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--wine);white-space:nowrap}
+
+/* price card */
+.listino{padding-block:60px}
+.card{background:var(--paper);border:1px solid var(--rule);padding:clamp(22px,5vw,56px);position:relative}
+.card::before{content:"";position:absolute;inset:8px;border:1px solid var(--rule);pointer-events:none}
+.card .top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end;margin-bottom:28px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 56px}
+.group{break-inside:avoid;margin-bottom:22px;min-width:0}
+.group h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.5rem;color:var(--wine);margin:0 0 6px;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.row{display:flex;align-items:baseline;gap:8px;width:100%;background:none;border:0;padding:9px 0;font:inherit;color:inherit;cursor:pointer;text-align:left}
+.row .n{font-weight:400}
+.row .cam{flex:none;width:18px;height:18px;color:var(--gold);transform:translateY(3px)}
+.row .dots{flex:1;border-bottom:1px dotted var(--soft);transform:translateY(-4px);min-width:20px}
+.row .p{font-family:var(--serif);font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums}
+.row:hover .n{color:var(--wine)}
+.row .p{white-space:nowrap}
+.extra .row:hover .n{color:inherit}
+.note{font-size:.85rem;color:var(--soft);margin:12px 0 0}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+
+/* made to order */
+.order{padding-block:20px 70px}
+.order .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.order .step{padding:22px 22px 0 0}
+.order .step + .step{padding-left:22px;border-left:1px solid var(--rule)}
+.order b{font-family:var(--serif);font-style:italic;font-weight:500;font-size:2.4rem;color:var(--wine);line-height:1}
+.order h3{font-weight:500;font-size:1rem;letter-spacing:.06em;margin:8px 0 4px}
+.order p{margin:0;color:var(--soft)}
+@media (max-width:760px){.order .grid{grid-template-columns:1fr}.order .step,.order .step + .step{padding:18px 0;border-left:0;border-bottom:1px solid var(--rule)}}
+
+/* close */
+.close-band{background:var(--wine);color:var(--wine-ink);text-align:center}
+.close-band .wrap{padding-block:70px}
+.close-band h2{color:var(--wine-ink)}
+.close-band p{opacity:.85;max-width:44ch;margin:16px auto 28px}
+.close-band .handle{font-family:var(--serif);font-style:italic;font-size:1.6rem;display:block;margin-bottom:24px;user-select:all}
+.close-band .btn{background:var(--wine-ink);color:var(--wine)}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.78rem;color:var(--soft);letter-spacing:.06em}
+
+/* detail sheet */
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(30,8,14,.55);display:grid;place-items:center;padding:16px;padding-bottom:max(16px,env(safe-area-inset-bottom,0px))}
+.sheet[hidden]{display:none!important}
+.panel{background:var(--paper);color:var(--ink);width:min(760px,100%);max-height:calc(100% - 20px);overflow:auto;display:grid;grid-template-columns:1fr 1fr;animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:.001;transform:translateY(24px)}}
+.panel .pimg{background:var(--rose);position:relative;min-height:300px}
+.panel .pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel .pimg img.cut{object-fit:contain;padding:10%}
+.panel .pimg .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--soft);text-align:center;padding:20px}
+.panel .ptx{padding:28px;display:flex;flex-direction:column;gap:10px}
+.panel h3{font-family:var(--serif);font-weight:500;font-size:2.1rem;line-height:1;margin:0}
+.panel .pp{font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--wine)}
+.panel .pd{color:var(--soft);margin:0}
+.panel .msg{font-size:.85rem;background:var(--bg);padding:10px 12px;margin:4px 0;color:var(--ink)}
+.panel .x{align-self:flex-end;background:none;border:0;font-size:1.8rem;line-height:1;cursor:pointer;color:var(--soft)}
+.panel .btn{width:100%}
+@media (max-width:620px){.panel{grid-template-columns:1fr}.panel .pimg{min-height:260px}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <nav><a href="#collezione">Collezione</a></nav>
+  <a class="mark" href="#top"><img src="foto/logo.webp" alt="">Morchic</a>
+  <a class="btn line ig" id="ig-top" target="_blank" rel="noopener" style="padding:10px 16px">Instagram</a>
+</div></header>
+
+<main id="top">
+  <section class="cover wrap">
+    <img class="seal" src="foto/logo.webp" alt="Logo Morchic Crochet">
+    <h1>Morchic<span>Atelier di borse all'uncinetto</span></h1>
+    <p>Ogni borsa nasce a mano, un punto dopo l'altro. Pezzi unici o rifatti su ordinazione nel colore che preferisci.</p>
+    <div class="acts">
+      <a class="btn" href="#collezione">Sfoglia la collezione</a>
+      <a class="btn line" href="#listino">Vedi il listino</a>
+    </div>
+  </section>
+
+  <section class="look" id="collezione">
+    <div class="wrap head">
+      <div><div class="label">Collezione</div><h2>Le nostre <i>creazioni</i></h2></div>
+      <span class="hint">Scorri di lato e tocca un pezzo per i dettagli</span>
+    </div>
+    <div class="rail-box">
+     
+      <div class="rail" id="rail" tabindex="0" aria-label="Collezione, scorri orizzontalmente"></div>
+    
+      <span class="rail-count" id="count"></span>
+    </div>
+  </section>
+
+  <section class="listino wrap" id="listino">
+    <div class="card">
+      <div class="top">
+        <div><div class="label">Listino prezzi</div><h2>Tutto il <i>catalogo</i></h2></div>
+        <span class="note">Prezzi di partenza per pezzo, in euro. Le aggiunte si pagano a parte.</span>
+      </div>
+      <div class="cols" id="cols"></div>
+      <p class="note">Le voci con l'icona della fotocamera hanno la foto: toccale per vederla.</p>
+    </div>
+  </section>
+
+  <section class="order wrap">
+    <div class="label" style="margin-bottom:14px">Come ordinare</div>
+    <div class="grid">
+      <div class="step"><b>I.</b><h3>Scegli l'articolo</h3><p>Dalla collezione o dal listino.</p></div>
+      <div class="step"><b>II.</b><h3>Scrivici in direct</h3><p>Su Instagram, con il nome del pezzo e il colore che vuoi.</p></div>
+      <div class="step"><b>III.</b><h3>Ricevi la tua borsa</h3><p>Ci accordiamo su consegna o spedizione a pagamento.</p></div>
+    </div>
+  </section>
+
+  <section class="close-band"><div class="wrap">
+    <div class="label" style="color:inherit;opacity:.75">Contatti</div>
+    <h2>Ordini solo su Instagram</h2>
+    <p>Mandaci un messaggio in direct: fatta a mano, pensata per te.</p>
+    <span class="handle" id="handle"></span>
+    <a class="btn" id="ig-close" target="_blank" rel="noopener">Apri Instagram</a>
+  </div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Morchic Crochet</span><span>Fatto a mano in Piemonte</span></div></footer>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="d-n">
+    <div class="pimg" id="d-img"></div>
+    <div class="ptx">
+      <button class="x" id="d-x" aria-label="Chiudi">×</button>
+      <span class="label" id="d-c"></span>
+      <h3 id="d-n"></h3>
+      <span class="pp" id="d-p"></span>
+      <p class="pd" id="d-d"></p>
+      <p class="msg" id="d-m"></p>
+      <a class="btn" id="d-ig" target="_blank" rel="noopener">Scrivi su Instagram</a>
+      <button class="btn line" id="d-copy" type="button">Copia il messaggio</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== Contatto ===== */
+const INSTAGRAM = "morchic_crochet";
+
+/* ===== Prodotti =====
+   foto: percorso dell'immagine. scontornata:true se ha lo sfondo trasparente. */
+const PRODOTTI = [
+  {nome:"Clutch 25 cm", cat:"Clutch e pochette", prezzo:30, foto:"foto/img_7.webp", scontornata:true, desc:"La versione grande: ci stanno telefono, chiavi e portafoglio."},
+  {nome:"Clutch 18/22 cm", nomeFoto:"Clutch 22 cm", cat:"Clutch e pochette", prezzo:25, foto:"foto/img_2.webp", scontornata:true, desc:"Clutch compatta con manico ad anello."},
+  {nome:"Pochette elegante", cat:"Clutch e pochette", prezzo:28, foto:"foto/img_13.webp", scontornata:true, desc:"Per cerimonie e serate, in ciniglia con manico ad asola."},
+  {nome:"Pochette da polso", cat:"Clutch e pochette", prezzo:22, foto:"foto/img_16.webp", scontornata:true, desc:"Piccola pochette con cinturino da polso, in filato lucido."},
+  {nome:"Tracolla", cat:"Borse", prezzo:28, foto:"foto/img_1.webp", scontornata:true, desc:"Borsa a tracolla in fettuccia con catena."},
+  {nome:"Borsa bauletto", cat:"Borse", prezzo:22, foto:"foto/img_5.webp", scontornata:true, desc:"Forma a bauletto, strutturata e capiente."},
+  {nome:"Borsa sacchetto", cat:"Borse", prezzo:20, foto:"foto/img_9.webp", scontornata:true, desc:"Morbida, si chiude con un nodo."},
+  {nome:"Sacchetto", cat:"Borse", prezzo:18, foto:"foto/img_14.webp", scontornata:true, desc:"Sacchetto in fettuccia con chiusura a coulisse."},
+  {nome:"Tracolla piccola", cat:"Borse", prezzo:15, foto:"foto/img_15.webp", scontornata:true, desc:"Mini tracolla con catenella per l'essenziale."},
+  {nome:"Custodia per telefono", cat:"Borse", prezzo:15, foto:"foto/img_8.webp", scontornata:true, desc:"Custodia a tracolla per il telefono."},
+  {nome:"Top all'uncinetto", cat:"Accessori", prezzo:35, foto:"foto/img_3.webp", scontornata:true, desc:"Top lavorato a mano."},
+  {nome:"Portachiavi lavorato", cat:"Accessori", prezzo:5, foto:"foto/img_12.webp", scontornata:true, desc:"Portachiavi lavorato a mano, come il pulcino."},
+  {nome:"Portachiavi in fettuccia", cat:"Accessori", prezzo:3, desc:"Un pensierino colorato da regalare."},
+  {nome:"Completo tazza", cat:"Casa", prezzo:35, foto:"foto/img_6.webp", scontornata:true, desc:"Il set completo, perfetto da regalare."},
+  {nome:"Cestino grande", cat:"Casa", prezzo:10, foto:"foto/img_10.webp", scontornata:true, desc:"Per il bagno, la scrivania o i trucchi."},
+  {nome:"Cestino piccolo lavorato", cat:"Casa", prezzo:8, foto:"foto/img_4.webp", scontornata:true, desc:"Con bordo decorato a fiori."},
+  {nome:"Cestino piccolo", cat:"Casa", prezzo:5, foto:"foto/img_11.webp", scontornata:true, desc:"Per anelli, mollette e piccoli oggetti."}
+];
+/* ==================== */
+
+const $=s=>document.querySelector(s);
+const IG=`https://instagram.com/${INSTAGRAM}`, DM=`https://ig.me/m/${INSTAGRAM}`;
+$("#ig-top").href=$("#ig-close").href=IG;
+$("#handle").textContent="@"+INSTAGRAM;
+const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img=p=>`<img${p.scontornata?' class="cut"':''} src="${p.foto}" alt="${esc(p.nome)}" loading="lazy">`;
+
+// lookbook: only pieces with a photo
+const withPhoto=PRODOTTI.map((p,i)=>({p,i})).filter(x=>x.p.foto);
+$("#rail").innerHTML=withPhoto.map(({p,i},k)=>`
+  <button class="plate" type="button" data-i="${i}">
+    <div class="img">${img(p)}</div>
+    <div class="cap"><span class="nm">${esc(p.nomeFoto||p.nome)}</span></div>
+  </button>`).join("");
+
+
+// rail arrows + counter
+const rail=$("#rail"), prev=$("#prev"), next=$("#next");
+const step=()=>{const p=rail.querySelector(".plate");return p?p.offsetWidth+18:300};
+prev.addEventListener("click",()=>rail.scrollBy({left:-step()}));
+next.addEventListener("click",()=>rail.scrollBy({left:step()}));
+function upd(){
+  prev.disabled=rail.scrollLeft<4;
+  next.disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-4;
+  const n=withPhoto.length, first=Math.min(n,Math.round(rail.scrollLeft/step())+1);
+  $("#count").textContent=`${first} / ${n}`;
+}
+rail.addEventListener("scroll",upd,{passive:true}); addEventListener("resize",upd); upd();
+
+// price card
+const cam='<svg class="cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-label="con foto"><path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>';
+const cats=["Clutch e pochette","Borse","Casa","Accessori"];
+$("#cols").innerHTML=cats.map(c=>`<div class="group"><h3>${c}</h3>${
+  PRODOTTI.map((p,i)=>({p,i})).filter(x=>x.p.cat===c&&x.p.listino!==false).map(({p,i})=>
+  `<button class="row" type="button" data-i="${i}"><span class="n">${esc(p.nome)}</span>${p.foto?cam:''}<span class="dots"></span><span class="p">da ${p.prezzo} €</span></button>`).join("")
+}</div>`).join("")+`<div class="group extra"><h3>Aggiunte</h3><div class="row" style="cursor:default"><span class="n">Ogni aggiunta</span><span class="dots"></span><span class="p">da 3 €</span></div><p class="note" style="margin-top:2px">Tracolla, paillettes, brillantini, doppio filato e altre personalizzazioni.</p></div>`;
+
+// detail sheet
+const sheet=$("#sheet"); let last=null, msg="";
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-i]"); if(!t) return;
+  const p0=PRODOTTI[+t.dataset.i]; const p=t.classList.contains("plate")&&p0.nomeFoto?{...p0,nome:p0.nomeFoto}:p0; last=t;
+  msg=`Ciao! Mi interessa “${p.nome}” (da ${p.prezzo} €) che ho visto sul sito. È disponibile?`;
+  $("#d-img").innerHTML=p.foto?img(p):`<div class="ph">Foto in arrivo.<br>Chiedici su Instagram di vederla.</div>`;
+  $("#d-c").textContent=p.cat; $("#d-n").textContent=p.nome; $("#d-p").textContent="da "+p.prezzo+" €";
+  $("#d-d").textContent=p.desc; $("#d-m").textContent=msg; $("#d-ig").href=DM;
+  $("#d-copy").textContent="Copia il messaggio";
+  sheet.hidden=false; $("#d-x").focus();
+});
+const close=()=>{sheet.hidden=true; last&&last.focus()};
+$("#d-x").addEventListener("click",close);
+sheet.addEventListener("click",e=>{if(e.target===sheet)close()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!sheet.hidden)close()});
+$("#d-copy").addEventListener("click",()=>{
+  const ok=()=>$("#d-copy").textContent="Copiato";
+  const sel=()=>{const r=document.createRange();r.selectNodeContents($("#d-m"));const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(msg).then(ok,sel)}catch(_){sel()}
+});
+</script>
+</body>
+</html>
